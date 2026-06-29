@@ -13,9 +13,3 @@ class BasePageLocators:
 
     # Локатор для нижней кнопки (Заказать/
     MIDDLE_ORDER_BUTTON = (By.CSS_SELECTOR, "div.Home_FinishButton__1_cWm button")
-
-    # Попап Cookie
-    COOKIE_POPUP = (By.CSS_SELECTOR, "div.App_CookieConsent__1yUIN")
-
-    # Кнопка Cookie
-    COOKIE_BUTTON = (By.CSS_SELECTOR, "button.App_CookieButton__3cvqF")

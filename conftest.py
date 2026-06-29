@@ -1,12 +1,10 @@
-import pytest
-
-from selenium import webdriver
-from .pages.order_page import OrderPage
 from .pages.main_page import MainPage
-from .pages.base_page import BasePage
+
+import pytest
+from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 
-@pytest.fixture(scope="function")
+@pytest.fixture()
 def driver():
     driver = webdriver.Firefox()
     yield driver
@@ -17,16 +15,8 @@ def wait(driver):
     return WebDriverWait(driver, 15)
 
 @pytest.fixture
-def order_page(driver):
-    page = OrderPage(driver)
-    yield page
-
-@pytest.fixture
 def main_page(driver):
     page = MainPage(driver)
+    page.open_site_and_accept_cookies() 
     yield page
-
-@pytest.fixture
-def base_page(driver):
-    page = BasePage(driver)
-    yield page
+    

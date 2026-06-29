@@ -1,13 +1,11 @@
 import allure
 import pytest
 
-from ..data import MAIN_PAGE, FAQ_DATA
-from ..locators.base_page_locators import BasePageLocators
+from ..data import FAQ_DATA
 
 
 class TestMainPageFAQ:
 
-    # Тест на проверку соответствия текста ожидаемому
     @pytest.mark.parametrize(
         "question, expected_answer",
         FAQ_DATA.items(),
@@ -17,11 +15,7 @@ class TestMainPageFAQ:
     @allure.feature("Блок 'Вопросы о важном': выпадающий список (аккордеон)")
     @allure.story("Проверка соответствия текстов ответов в аккордеоне ожидаемым значениям")
     @allure.title("'Вопросы о важном': проверка соответствия ответа для вопроса '{question}'")
-    def test_check_text_in_accordion(self, base_page, main_page, question, expected_answer):
-        # Загрузка страницы
-        base_page.open_site_assept_cookie(MAIN_PAGE, BasePageLocators.COOKIE_POPUP, BasePageLocators.COOKIE_BUTTON)
-
+    def test_check_text_in_accordion(self, main_page, question, expected_answer):
         actual_answer = main_page.open_accordion_and_check_answer(question)
-
-        with allure.step("Сравнение полученого текста с ожидаемым"):
+        with allure.step("Сравнение полученного текста с ожидаемым"):
             assert expected_answer in actual_answer

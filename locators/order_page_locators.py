@@ -49,5 +49,5 @@ class OrderPageLocators:
 
     # Локатор текста в окне заказ оформлен
     ORDER_STATUS_MESSAGE = (By.CSS_SELECTOR, ".Order_ModalHeader__3FDaJ")
-    # Сам текст "Заказ оформлен"
+    # Текст "Заказ оформлен"
     DAY_CELL = (By.XPATH, "//div[contains(@class, 'day') and text() = '{}']")

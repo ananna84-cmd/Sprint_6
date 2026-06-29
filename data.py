@@ -1,5 +1,5 @@
-from .locators.base_page_locators import BasePageLocators
 from .locators.order_page_locators import OrderPageLocators
+from .locators.base_page_locators import BasePageLocators
 
 FAQ_DATA = {
     "Сколько это стоит? И как оплатить?": "Сутки — 400 рублей. Оплата курьеру — наличными или картой.",
@@ -18,6 +18,7 @@ YANDEX_PAGE = "https://dzen.ru/"
 
 ORDER_DATA = {
     "case_1": {
+        "button": BasePageLocators.UPPER_ORDER_BUTTON,
         "name": "Анна",
         "surname": "Иванова",
         "address": "Москва",
@@ -26,6 +27,7 @@ ORDER_DATA = {
         "color": OrderPageLocators.BLACK_COLOR_CHECKBOX,
         "comment": "Оставить у двери"},
     "case_2": {
+        "button": BasePageLocators.MIDDLE_ORDER_BUTTON,
         "name": "Евгений",
         "surname": "Петров",
         "address": "Санкт-Петербург",
