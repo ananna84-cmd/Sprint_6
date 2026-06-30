@@ -43,12 +43,7 @@ class MainPage(BasePage):
     
     @allure.step("Переключение на новую вкладку и ожидание {url}")
     def switch_to_new_window_and_wait_url(self, url):
-        original_window = self.driver.current_window_handle
-        self.wait.until(lambda d: len(d.window_handles) > 1)
-        # Находим новую вкладку (первую, которая не равна оригинальной)
-        new_window = [w for w in self.driver.window_handles if w != original_window]
-        # Переключение
-        self.driver.switch_to.window(new_window[0])
+        self.switch_to_new_window()
         self.wait.until(expected_conditions.url_contains(url))
 
     @allure.title("Получение текста заголовка после клика по логотипу самоката")

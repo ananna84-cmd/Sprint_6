@@ -48,3 +48,12 @@ class BasePage:
     def fill_field(self, locator, value):
         element = self.wait_for_visible_element(locator)
         element.send_keys(value)
+
+    def switch_to_new_window(self):
+        original_window = self.driver.current_window_handle
+        self.wait.until(lambda d: len(d.window_handles) > 1)
+        # Находим новую вкладку (первую, которая не равна оригинальной)
+        new_window = [w for w in self.driver.window_handles if w != original_window]
+        # Переключение
+        self.driver.switch_to.window(new_window[0])
+        
