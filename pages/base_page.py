@@ -49,6 +49,7 @@ class BasePage:
         element = self.wait_for_visible_element(locator)
         element.send_keys(value)
 
+    @allure.step("Переключение на новую вкладку")
     def switch_to_new_window(self):
         original_window = self.driver.current_window_handle
         self.wait.until(lambda d: len(d.window_handles) > 1)
